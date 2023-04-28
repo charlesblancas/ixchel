@@ -1,21 +1,13 @@
 div.container#first-container
     div.subcontainer
-        h1
-            "Hello"
-    
+        h1 >{Hello}
     div.subcontainer
-        h2
-            "My name is Charles"
-
+        h2>{My name is Charles}
 hr
 hr
 hr
-
-div#second-container.container
-    h1
-        "Howdy"
-    h2
-        "This is an h2"
+div #second-container .container !href{Test} >{Hello World} !onclick{save} !disabled
+    h1 >{Howdy}
+    h2>{This is an h2}
     hr
-    h3
-        "What is this lol"
+    h3>{What is this lol}
