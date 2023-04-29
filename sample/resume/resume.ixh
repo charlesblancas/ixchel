@@ -115,6 +115,7 @@ html %lang{en}
                             li.item-point
                                 >{Set up Swagger for API documentation and Mockito for stubbing in unit tests}
 
+// Skills Section
             div.section.skills
                 h1.section-title >{Skills}
                 hr
