@@ -14,7 +14,7 @@ html %lang{en}
       div.header
         h1 >{Charles Spencer Blancas}
         p
-        a %href{mailto:charles.blancas@mail.mcgill.ca} >{charles.blancas@mail.mcgill.ca}
+          a %href{mailto:charles.blancas@mail.mcgill.ca} >{charles.blancas@mail.mcgill.ca}
           >{| 514-834-7690 | Dollard-des-Ormeaux, QC, CA}
           br
           a %href{https://github.com/Charles-Spencer-Blancas} >{https://github.com/Charles-Spencer-Blancas}
