@@ -1,14 +1,20 @@
 {
-  "name": "ixchel",
+  "name": "ixchel-lang",
   "version": "1.0.0-alpha.1",
   "description": "An indentation based markup language that is transcompiled to HTML",
-  "main": "main.js",
+  "main": "./lib/cli.js",
+  "files": [
+    "lib"
+  ],
   "directories": {
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
     "test": "jest"
+  },
+  "bin":{
+    "ixchel": "./lib/cli.js"
   },
   "repository": {
     "type": "git",
