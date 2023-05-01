@@ -16,8 +16,9 @@ const voidElements = [
     'source',
     'track',
     'wbr',
-    '!DOCTYPE', // This is not a real tag but it is self closing
+    '!DOCTYPE', // This is not a tag but it is self closing
 ];
+
 /**
  * While the current indent is less than the expected indent, close tags and
  * add them to the output
@@ -56,7 +57,8 @@ const makeIndentationMatch = (
 };
 
 /**
- *
+ * Parses a line of ixh and returns the html and the updated list of opened tags.
+ * If the line is a comment or whitespace, then it returns null
  *
  * @param line
  * @param openedTags
@@ -200,6 +202,13 @@ const parseLine = (
     return { parsedLine: output, updatedTags: openedTags };
 };
 
+/**
+ * Converts an ixh file to html and returns the html as a string or writes it to a file
+ *
+ * @param input The path to the ixh file
+ * @param fileOutput If null, then the html is returned as a string, otherwise it is written to the file
+ * @returns The html as a string if fileOutput is not provided or null, otherwise void
+ */
 const ixhToHtml = (input: string, fileOutput: string | null = null) => {
     const data = fs.readFileSync(input, 'utf8');
     const lines = data.split('\n');
@@ -237,12 +246,3 @@ const ixhToHtml = (input: string, fileOutput: string | null = null) => {
 
     fs.writeFileSync(fileOutput, outputString);
 };
-
-{
-    // let file = fs.readFileSync('sample.ixh', 'utf8');
-    // let lines = file.split('\n');
-    // let parsedLine = parseLine(lines[0], []);
-    // console.log(parsedLine);
-    //console.log(ixhToHtml('sample.ixh'));
-    ixhToHtml('./sample/resume/resume2.ixh', './sample/resume/resume2.html');
-}
