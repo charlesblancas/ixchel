@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import * as fs from 'fs';
 import ixhToHtml from './ixhToHtml';
+import parseLine from './parseLine';
 
 let args = process.argv.slice(2);
 
@@ -20,4 +21,4 @@ if (!fs.existsSync(input)) {
 
 let output = args[1];
 
-ixhToHtml(input, output);
+ixhToHtml(parseLine, input, output);
