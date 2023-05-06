@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import parseLine from './parseLine';
 
 /**
  * Converts an ixh file to html and returns the html as a string or writes it to a file
@@ -7,11 +8,7 @@ import * as fs from 'fs';
  * @param fileOutput If null, then the html is returned as a string, otherwise it is written to the file
  * @returns The html as a string if fileOutput is not provided or null, otherwise void
  */
-const ixhToHtml = (
-    parseLine: Function,
-    input: string,
-    fileOutput: string | null = null
-) => {
+const ixhToHtml = (input: string, fileOutput: string | null = null) => {
     const data = fs.readFileSync(input, 'utf8');
     const lines = data.split('\n');
     let openedTags: string[] = [];
@@ -29,7 +26,7 @@ const ixhToHtml = (
 
         // Start of a multiline string
         if (line.trim().startsWith('>{') && !line.trim().endsWith('}')) {
-            multiline += line.trimEnd();
+            multiline += `${line.trimEnd()} `;
             return null;
         }
 
@@ -38,7 +35,6 @@ const ixhToHtml = (
             if (line.trim().endsWith('}')) {
                 multiline += line.trim().substring(0, line.length - 1);
                 line = multiline;
-                console.log(multiline);
                 multiline = '';
             }
             // Continuation of multiline string

@@ -21,4 +21,4 @@ if (!fs.existsSync(input)) {
 
 let output = args[1];
 
-ixhToHtml(parseLine, input, output);
+ixhToHtml(input, output);
