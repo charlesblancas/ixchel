@@ -32,11 +32,18 @@ html %lang{en}
                         h2.item-subtitle >{CIUSSS du Centre-Sud-de-L'Ile-de-Montreal}
                     ul.item-body
                         li.item-point
-                            >{Developed a web application for scheduling interpreters for medical appointments for the CIUSSS du Centre-Sud-de-L'Ile-de-Montreal using ASP.NET Core, SQL Server Blazor, C#, HTML, and CSS}                        ]
+                            >{Developed a web application for scheduling 
+                            interpreters for medical appointments for the 
+                            CIUSSS du Centre-Sud-de-L'Ile-de-Montreal using 
+                            ASP.NET Core, SQL Server Blazor, C#, HTML, and CSS}
                         li.item-point
-                            >{Collaborated with business analysts to clarify requirements for tracking appointments and invoices}
+                            >{Collaborated with business analysts to clarify 
+                            requirements for tracking appointments and invoices}
                         li.item-point
-                            >{Developed proofs of concept for a native mobile application using the .NET MAUI framework and an authentication microservice with single sign-on using ASP.NET Core}
+                            >{Developed proofs of concept for a native mobile 
+                            application using the .NET MAUI framework and an 
+                            authentication microservice with single sign-on
+                            using ASP.NET Core}
 
             div.section
                 h1.section-title >{Education}
@@ -49,7 +56,10 @@ html %lang{en}
                         h2.item-subtitle >{McGill University}
                     ul.item-body
                         li.item-point >{Cumulative GPA: 3.90/4.00}
-                        li.item-point >{2021 - 2022: Dean's Honor List, Brodeur-Drummond and Professor Martin Levine Scholarships}
+                        li.item-point 
+                            >{2021 - 2022: Dean's Honor List, 
+                            Brodeur-Drummond and Professor Martin Levine 
+                            Scholarships}
         
             div.section
                 h1.section-title >{Projects}

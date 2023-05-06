@@ -16,13 +16,36 @@ const ixhToHtml = (
     const lines = data.split('\n');
     let openedTags: string[] = [];
     let indentation: number | null = null;
+    let multiline: string = '';
 
     let output = lines.map((line) => {
+        // Set indentation if not already set
         if (!indentation) {
             let matchWithWhitespace = line.match(/^\s+/);
             indentation = matchWithWhitespace
                 ? matchWithWhitespace[0].length
                 : null;
+        }
+
+        // Start of a multiline string
+        if (line.trim().startsWith('>{') && !line.trim().endsWith('}')) {
+            multiline += line.trimEnd();
+            return null;
+        }
+
+        if (multiline !== '') {
+            // End of multiline string
+            if (line.trim().endsWith('}')) {
+                multiline += line.trim().substring(0, line.length - 1);
+                line = multiline;
+                console.log(multiline);
+                multiline = '';
+            }
+            // Continuation of multiline string
+            else {
+                multiline += `${line.trim()} `;
+                return null;
+            }
         }
 
         const { parsedLine, updatedTags } = parseLine(
