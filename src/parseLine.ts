@@ -160,12 +160,12 @@ const parseLine = (
 
     output += `<${tag}`;
 
-    if (classes.length > 0) {
-        output += ` class="${classes.join(' ')}"`;
-    }
-
     if (id) {
         output += ` id="${id}"`;
+    }
+
+    if (classes.length > 0) {
+        output += ` class="${classes.join(' ')}"`;
     }
 
     if (Object.keys(attributes).length > 0) {
