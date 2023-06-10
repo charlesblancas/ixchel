@@ -1,9 +1,4 @@
-import { jest } from '@jest/globals';
-import ixhToHtml from '../src/ixhToHtml';
-import * as fs from 'fs';
-
 import parseLine from '../src/parseLine';
-import exp from 'constants';
 
 describe('parseLine', () => {
     it('should return null if the line is a comment so it starts with //', () => {
@@ -82,6 +77,13 @@ describe('parseLine', () => {
         });
     });
 
+    it('should return the correct html for a single tag with an attribute even if the attribute is already in quotes', () => {
+        expect(parseLine('div%attr{"value"}', [], 4)).toEqual({
+            parsedLine: '<div attr="value">',
+            updatedTags: ['div'],
+        });
+    });
+
     it('should return the correct html for a single tag with multiple attributes', () => {
         expect(parseLine('div%attr1{value1}%attr2{value2}', [], 4)).toEqual({
             parsedLine: '<div attr1="value1" attr2="value2">',
@@ -114,6 +116,13 @@ describe('parseLine', () => {
         ).toEqual({
             parsedLine:
                 '<div id="id" class="class1 class2" attr1="value1" attr2="value2">',
+            updatedTags: ['div'],
+        });
+    });
+
+    it('should return the correct html for a single tag with a boolean attribute', () => {
+        expect(parseLine('div%attr', [], 4)).toEqual({
+            parsedLine: '<div attr>',
             updatedTags: ['div'],
         });
     });
