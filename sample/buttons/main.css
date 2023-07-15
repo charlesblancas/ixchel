@@ -1,0 +1,22 @@
+button {
+    border: 0;
+    padding: 0.75rem;
+    border-radius: 5px;
+}
+
+.container {
+    font-family: sans;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+#counter {
+    margin: auto;
+    font-size: 20rem;
+}
+
+.buttons {
+    margin: auto;
+}
+
